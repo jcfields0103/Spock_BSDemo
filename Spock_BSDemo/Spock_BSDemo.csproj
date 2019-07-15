@@ -165,6 +165,9 @@
     <Content Include="img\3.jpg" />
     <Content Include="img\4.jpg" />
     <Content Include="img\5.jpg" />
+    <Content Include="img\6.jpg" />
+    <Content Include="img\7.jpg" />
+    <Content Include="img\9.jpg" />
     <Content Include="img\grabbing.png" />
     <Content Include="img\img1.jpg" />
     <Content Include="img\loader.gif" />

@@ -1,5 +1,11 @@
 (function ($) {
 
+    $("#codechal").hide();
+
+    $("#challenger").click(function () {
+        $("#codechal").toggle()
+    });
+
 	new WOW().init();
 	
 	$(window).load(function(){
@@ -10,7 +16,8 @@
 		jQuery("#preloader").delay(100).fadeOut("slow");
 		jQuery("#load").delay(100).fadeOut("slow");
 	});
-
+    //Hide coding challenges
+   
 
 	//jQuery for page scrolling feature - requires jQuery Easing plugin
 	$(function() {

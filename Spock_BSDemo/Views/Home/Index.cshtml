@@ -27,6 +27,7 @@
     <link href="~/Scripts/SyntaxHighlighter/styles/shThemeEclipse.css" rel="stylesheet" />
     <link href="~/Content/SumofAllFears.css" rel="stylesheet" />
     <link href="~/Content/FizzBuzz.css" rel="stylesheet" />
+
     <!-- =======================================================
       Theme Name: Lonely
       Theme URL: https://bootstrapmade.com/free-html-bootstrap-template-lonely/
@@ -71,7 +72,7 @@
                             <ul class="nav navbar-nav">
                                 <li class="active"><a href="#intro">Home</a></li>
                                 <li><a href="#about">About Me</a></li>
-                                <li><a href="#gallery">My Coding Challenges</a></li>
+                                <li><a href="#gallery">Portfolio</a></li>
                                 <li><a href="#contact">Talk to me</a></li>
                             </ul>
                         </div>
@@ -113,13 +114,12 @@
                         I've always been drawn to technology as it applies to those hobbies of mine. I've always had an aptitude for taking things apart, seeing how they work, and most of the time putting them back together.
                     </p>
                     <p>
-                        After some wandering around and trying my hand at different career fields, I finally found an opportunity to do something with that passion and aptitude. I've found success in what I've learned
+                        After some wandering around and trying my hand at different career fields, I finally found an opportunity to do something with that technological passion and aptitude. I've found success in what I've learned
                         with coding so far. My hope is to never stop learning and to help others find and enjoy what they love easier through technology.
                     </p>
                     <blockquote>
                         "Not all those who wander are lost."
                     </blockquote>
-                    <a href="#gallery" class="btn btn-skin btn-lg btn-scroll">Check out some Coding Challenges!</a>
                 </div>
             </div>
         </div>
@@ -183,11 +183,39 @@
             </div>
         </div>
 
-
         <div class="row">
-            <div class="col-md-offset-2 text-center">
-                <div class="wow bounceInUp" data-wow-delay="0.4s">
 
+            <div class="wow bounceInUp" data-wow-delay="0.4s">
+                <div class="col-md-4">
+                    <img src="~/img/6.jpg" class="img-responsive btn" alt="img">
+                    <div class="caption">
+                        <p>
+                            Blog
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="~/img/7.jpg" class="img-responsive btn" alt="img">
+                    <div class="caption">
+                        <p>
+                            Bug Tracker
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="~/img/9.jpg" id ="challenger" class="img-responsive btn" alt="img">
+                    <div class="caption">
+                        <p>
+                            Coding Challenges
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid" id="codechal">
+            <div class="row">
+                <div class="col-md-offset-2 text-center">
                     <div class="col-md-2">
                         <img src="~/img/1.jpg" class="img-responsive btn" data-toggle="modal" data-target="#mathmodal" alt="img">
                         <div class="caption">
@@ -616,7 +644,7 @@ $("#clearBtn2").click(function () {
                     <h4 class="modal-title text-center">FizzBizz</h4>
                 </div>
                 <div class="modal-body">
-                    
+
                     <div class="row">
                         <div class="col-xs-12 text-center h2">
                             Javascript Exercise 4 : FizzBuzz
@@ -639,8 +667,8 @@ $("#clearBtn2").click(function () {
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-12 text-center" >
-                            <p id="fizzbuzz" ></p>
+                        <div class="col-xs-12 text-center">
+                            <p id="fizzbuzz"></p>
                         </div>
                     </div>
                     <hr />
@@ -721,22 +749,22 @@ $("#clearBtn2").click(function () {
                     </div>
                     <div class="row">
                         <div class="col-xs-2">
-                            <input type="number" class="sumput" id="num1" /> 
+                            <input type="number" class="sumput" id="num1" />
                         </div>
                         <div class="col-xs-2">
-                             <input type="number" class="sumput" id="num2" />
+                            <input type="number" class="sumput" id="num2" />
                         </div>
                         <div class="col-xs-2">
-                            <input type="number" class="sumput" id="num3" /> 
+                            <input type="number" class="sumput" id="num3" />
                         </div>
                         <div class="col-xs-2">
-                             <input type="number" class="sumput" id="num4" /> 
+                            <input type="number" class="sumput" id="num4" />
                         </div>
                         <div class="col-xs-2">
-                             <input type="number" class="sumput" id="num5" /> 
+                            <input type="number" class="sumput" id="num5" />
                         </div>
                         <div class="col-xs-2">
-                             <input type="number" class="sumput" id="num6" />
+                            <input type="number" class="sumput" id="num6" />
                         </div>
                     </div>
                     <div class="row">
@@ -841,8 +869,16 @@ $(function () {
     <script type="text/javascript">
         SyntaxHighlighter.all()
     </script>
+  
+    <script>
+        $(function () {
+            $("#codechal").hide();
+            $("#challenger").click(function () {
+                $("#codechal").toggle();
+            })
+        })
+    </script>
 
-
-</body>
+    </body>
 
 </html>
