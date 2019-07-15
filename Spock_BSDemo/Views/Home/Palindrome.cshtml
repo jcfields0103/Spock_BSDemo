@@ -1,0 +1,80 @@
+﻿<style>
+    .palin {
+        color: forestgreen;
+        font-weight: bolder;
+        
+    }
+
+    .nolip {
+        color: red;
+        font-weight: bolder;
+        
+    }
+</style>
+
+<div class="row">
+    <div class="col-xs-12 text-center h2">
+        Javascript Exercise 3 : Palindrome
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-xs-12 text-center h3">
+        Enter a word to reverse it, and see if it <span class="palin"> is </span> or <span class="nolip">isn't</span> a palindrome.
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 text-center">
+        <input type="text" id="word" class="text-center" placeholder="Flip it! !ti pilF" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 text-center h2">
+        <p id="reverse"></p>
+    </div>
+</div>
+<div class=row>
+    <div class="col-xs-12 text-center">
+        <div class="btn-group-lg">
+            <button id="palinBtn" class="btn btn-primary">Reverse</button>
+            <button id="clearBtn3" class="btn btn-danger">Clear</button>
+            <button id="codeBtn3" class="btn btn-success">Show Code</button>
+            <div class="row">
+                <div class="col-xs-12 text-justify">
+                    <div id="code3">
+                        <pre class="brush: js">
+  $("#palinBtn").click(function () {
+        //Get user input
+        var word = $("#word").val();
+        //Flip the word and check for symmetry
+        for (var index = word.length - 1, newword = ''; index >= 0; index--) {
+            newword += word.substr(index, 1);
+        }
+        if (word == newword) {
+            var palindrome = '<span class="palin">' + newword + '</span>'
+        }
+        else {
+            var palindrome = '<span class="nolip">' + newword + '</span>'
+        }
+        //Show user the Results
+        $("#reverse").html(palindrome);
+
+    });
+    //Clear input and output
+    $("#clearBtn3").click(function () {
+        $("#word").val("");
+        $("#reverse").text("");
+    });
+})
+</pre>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+@section scripts{
+        <script src="~/Scripts/Palindrome.js"></script>
+}
+

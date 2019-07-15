@@ -1,0 +1,104 @@
+﻿
+<div class="row">
+    <div class="col-xs-12 text-center h2">
+        Coding Challenge 5: Sum of All Fears
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-xs-12 text-center h3">
+        Enter any six numbers and then a seventh called "K". <br> The program will search the array two at a time and see if any of their sums equal the "K" value.
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-2">
+        <input type="number" id="num1" />
+    </div>
+    <div class="col-xs-2">
+        <input type="number" id="num2" />
+    </div>
+    <div class="col-xs-2">
+        <input type="number" id="num3" />
+    </div>
+    <div class="col-xs-2">
+        <input type="number" id="num4" />
+    </div>
+    <div class="col-xs-2">
+        <input type="number" id="num5" />
+    </div>
+    <div class="col-xs-2">
+        <input type="number" id="num6" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 text-center">
+        <div class="row">
+            Enter a value for K below.
+        </div>
+        <div class="row">
+            <input type="number" id="numK" />
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 text-center">
+        <p id="K"></p>
+    </div>
+</div>
+<div class=row>
+    <div class="col-xs-12">
+        <div class="btn-group-lg text-center">
+            <button id="fearBtn" class="btn btn-primary">Calculate</button>
+            <button id="clearBtn5" class="btn btn-danger">Clear</button>
+            <button id="codeBtn5"  class="btn btn-success">Show Code</button>
+                           <div class="row">
+                             <div class="col-xs12 text-justify">
+                                <div id="code">
+                                    <pre class="brush: js">
+$(function () { 
+        //Get the users input
+       $("#fearBtn").click(function () {
+        var num1 = +$("#num1").val();
+        var num2 = +$("#num2").val();
+        var num3 = +$("#num3").val();
+        var num4 = +$("#num4").val();
+        var num5 = +$("#num5").val();
+        var num6 = +$("#num6").val();
+        var numK = +$("#numK").val();
+        var checkK = false;
+        var output = (numK + " was not found.")
+        //Search the array
+        var field = [num1, num2, num3, num4, num5, num6]
+        var answer = 0
+        for (var check1 = 0; check1 <= field.length - 1; check1++) {
+            for (var check2 = 1; check2 <= field.length - 1; check2++) {
+                
+
+                answer = (field[check1]) + (field[check2])
+                if (answer == numK && check1 !== check2) {
+                    checkK = true
+                    output = (numK + " was found by adding array members " + field[check1] + " and " + field[check2] + ".")
+                    break;                    
+                }                
+            }            
+        }       
+        //Display the results to the user
+        $("#K").text(output);
+    })
+        //Clear the input and output
+    $("#clearBtn5").click(function () {
+        $("#num1, #num2, #num3, #num4, #num5, #num6, #numK").val("");
+        $("#K").text("");
+    })
+});
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@section scripts{
+    <script src="~/Scripts/SumofallFears.js"></script>
+    }
+

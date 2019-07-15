@@ -1,0 +1,57 @@
+﻿<div class="row">
+    <div class="col-xs-12 text-center h3">
+        Enter any number less than 171 to find its factorial.
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-6">
+        <input type="number" id="mathnum6" placeholder="Enter a number." />
+    </div>
+    <div class="col-xs-6">
+        <p id="output"></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 text-center">
+        <div class="btn-group-lg">
+            <button id="mathBtn2"  class="btn btn-primary">Calculate</button>
+            <button id="clearBtn2" class="btn btn-danger">Clear</button>
+            <button id="codeBtn2"  class="btn btn-success">Show Code</button>
+                <div class="row">
+                    <div class="col-xs-12 text-justify">
+                        <div id="code2">
+                            <pre class="brush: js">
+$("#mathBtn2").click(function () {
+    //Get user input
+    var num6 = +$("#mathnum6").val();
+    //Do the calculation
+    if (num6 > 170) {
+        alert("Please enter a positive number less than 171.");
+        $("#mathnum6").val("");
+        $("#output").text("");
+        return;
+    }
+    for (var fact = num6 - 1; fact > 1; fact--) {
+        num6 *= fact;
+    }
+    //Display results to the User
+    $("#output").text("The factorial of your number is " + num6 + ".");
+});
+
+//Clear the input and display
+$("#clearBtn2").click(function () {
+    $("#mathnum6").val("");
+    $("#output").text("");
+});
+</pre>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+        <script src="~/Scripts/Factorial.js"></script>
+}

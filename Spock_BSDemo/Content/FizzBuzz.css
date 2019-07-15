@@ -1,0 +1,14 @@
+﻿.fizz {
+    color: red;
+    font-weight: bolder;
+}
+
+.buzz {
+    color: blue;
+    font-weight: bolder;
+}
+
+.fizzbuzz {
+    color: rebeccapurple;
+    font-weight: bolder;
+}

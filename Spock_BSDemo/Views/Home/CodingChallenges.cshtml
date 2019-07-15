@@ -1,0 +1,332 @@
+﻿<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-info btn-block" data-toggle="modal" data-target="#CodingChallenges">Coding Challenges</button>
+
+<!-- Modal -->
+<div id="CodingChallenges" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>       
+      </div>
+      <div class="modal-body">
+          <ul class="nav nav-pills nav-justified">
+              <li class="active"><a data-toggle="pill" href="#math">Math</a></li>
+              <li><a data-toggle="pill" href="#factorial">Factorial</a></li>
+              <li><a data-toggle="pill" href="#palindrome">Palindrome</a></li>
+              <li><a data-toggle="pill" href="#fizzbuzz">FizzBuzz</a></li>
+              <li><a data-toggle="pill" href="#SoAF">Sum of All Fears</a></li>
+          </ul>
+
+          <div class="tab-content">
+              <div id="math" class="tab-pane fade in active">
+                  <div class="row">
+                      <div class="col-xs-12 text-center h2">
+                          Coding Challenge 1 : Simple Math
+                      </div>
+                  </div>
+                  <hr />
+                  <div class="row">
+                      <div class="col-xs-12 text-center h3">
+                          Enter five numbers for some simple math.
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-xs-6">
+                          <div class="row">
+                              <div class="col-xs-6">
+                                  <input type="number" id="mathnum1" placeholder="Enter a number." />
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-xs-6">
+                                  <input type="number" id="mathnum2" placeholder="Enter a number." />
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-xs-6">
+                                  <input type="number" id="mathnum3" placeholder="Enter a number." />
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-xs-6">
+                                  <input type="number" id="mathnum4" placeholder="Enter a number." />
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-xs-6">
+                                  <input type="number" id="mathnum5" placeholder="Enter a number." />
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-xs-6">
+                          <div class="row">
+                              <div class="col-xs-12">
+                                  <p id="smallest"></p>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-xs-12">
+                                  <p id="largest"></p>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-xs-12">
+                                  <p id="sum"></p>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-xs-12">
+                                  <p id="product"></p>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-xs-12">
+                                  <p id="average"></p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <hr />
+                  <div class=row>
+                      <div class="col-xs-12 text-center">
+                          <div class="btn-group-lg">
+                              <button id="mathBtn" class="btn btn-primary">Calculate</button>
+                              <button id="clearBtn" class="btn btn-danger">Clear</button>
+                              <button id="codeBtn" data-toggle="collapse" data-target="#code" class="btn btn-success">Code</button>
+                              <div id="code" class="collapse">
+                                  Placeholder for code
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+
+                  @section scripts{
+                      <script>
+                          $("#mathBtn").click(function () {
+                              //Step 1: Get the user data
+                              var num1 = Number($("#mathnum1").val());
+                              var num2 = Number($("#mathnum2").val());
+                              var num3 = Number($("#mathnum3").val());
+                              var num4 = Number($("#mathnum4").val());
+                              var num5 = Number($("#mathnum5").val());
+
+                              //Step 2: Make the calculations with the given data
+                              var smallest = Math.min(num1, num2, num3, num4, num5);
+                              var largest = Math.max(num1, num2, num3, num4, num5);
+                              var sum = num1 + num2 + num3 + num4 + num5;
+                              var product = num1 * num2 * num3 * num4 * num5;
+                              var average = sum / 5;
+
+
+                              //Step 3: Display the results
+                              $("#smallest").text("The smallest number is: " + smallest);
+                              $("#largest").text("The largest number is: " + largest);
+                              $("#sum").text("The sum of the numbers is: " + sum);
+                              $("#product").text("The product of the numbers is: " + product);
+                              $("#average").text("The average of the numbers is: " + average);
+                          });
+
+                          $("#clearBtn").click(function () {
+                              $("#mathnum1, #mathnum2, #mathnum3, #mathnum4, #mathnum5").val("");
+                              $("#smallest, #largest, #sum, #product, #average").text("");
+                          });
+
+                      </script>
+                      <script>
+                          $("#mathBtn2").click(function () {
+                              var num6 = +$("#mathnum6").val();
+                              if (num6 > 170) {
+                                  alert("Please enter a positive number less than 171.");
+                                  $("#mathnum6").val("");
+                                  $("#output").text("");
+                                  return;
+                              }
+                              for (var fact = num6 - 1; fact > 1; fact--) {
+                                  num6 *= fact;
+                              }
+
+                              $("#output").text("The factorial of your number is " + num6 + ".");
+                          });
+
+
+                          $("#clearBtn2").click(function () {
+                              $("#mathnum6").val("");
+                              $("#output").text("");
+                          });
+
+                      </script>
+                      <script>
+                          $("#palinBtn").click(function () {
+                              var word = $("#word").val();
+                              for (var index = word.length - 1, newword = ''; index >= 0; index--) {
+                                  newword += word.substr(index, 1);
+                              }
+                              if (word == newword) {
+                                  alert("Your word is a palindrome!");
+                              }
+                              else {
+                                  alert("Your word is not a palindrome");
+                              }
+
+                              $("#reverse").text(newword);
+
+                          });
+                          $("#clearBtn3").click(function () {
+                              $("#word").val("");
+                              $("#reverse").text("");
+                          });
+                      </script>
+                      <script>
+                          $("#fizzBtn").click(function () {
+                              var fizz = +$("#fizz").val();
+                              var buzz = +$("#buzz").val();
+                              var output = "";
+
+                              for (var counter = 1; counter <= 100; counter++)
+                                  if (counter % fizz == 0 && counter % buzz == 0) {
+                                      output += ("Fizzbuzz, ")
+                                  }
+                                  else if (counter % fizz == 0) {
+                                      output += ("Fizz, ")
+                                  }
+                                  else if (counter % buzz == 0) {
+                                      output += ("Buzz, ")
+                                  }
+                                  else {
+                                      output += counter + (", ")
+                                  }                             
+                              output= output.slice(0,output.length -2)
+                              $("#fizzbuzzoutput").text(output);
+                          })
+                          $("#clearBtn4").click(function () {
+                              $("#fizz, #buzz").val("");
+                              $("#fizzbuzz").text("");
+                          })
+                      </script>
+                  }
+
+
+              </div>
+              <div id="factorial" class="tab-pane fade">
+                  <div class="col-xs-12 text-center h2">
+                      Coding Challenge 2 : Factorial
+                  </div>
+                <hr />
+                  <div class="row">
+                      <div class="col-xs-12 text-center h3">
+                          Enter any number less than 171 to find its factorial.
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-xs-6">
+                          <input type="number" id="mathnum6" placeholder="Enter a number." />
+                      </div>
+                      <div class="col-xs-6">
+                          <p id="output"></p>
+                      </div>
+                  </div>
+                  <hr />
+
+                  <div class="row">
+                      <div class="col-xs-12 text-center">
+                          <div class="btn-group-lg">
+                              <button id="mathBtn2" class="btn btn-primary">Calculate</button>
+                              <button id="clearBtn2" class="btn btn-danger">Clear</button>
+                              <button id="codeBtn2" data-toggle="collapse" data-target="#code2" class="btn btn-success">Code</button>
+                              <div id="code2" class="collapse">
+                                  Placeholder for code
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+
+
+
+              </div>
+              <div id="palindrome" class="tab-pane fade">
+                  <div class="row">
+                      <div class="col-xs-12 text-center h2">
+                          Coding Challenge 3 : Palindrome
+                      </div>
+                  </div>
+                  <br />
+                  <div class="row">
+                      <div class="col-xs-12 text-center h3">
+                          Enter a word to reverse it and see if its a palindrome
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-xs-12 text-center">
+                          <input type="text"class="input-lg" id="word" placeholder="Flip it! !ti pilF" />
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-xs-12 text-center h2">
+                          <p id="reverse"></p>
+                      </div>
+                  </div>
+                  <div class=row>
+                      <div class="col-xs-12 text-center">
+                          <div class="btn-group-lg">
+                              <button id="palinBtn" class="btn btn-primary">Reverse</button>
+                              <button id="clearBtn3" class="btn btn-danger">Clear</button>
+                              <button id="codeBtn3" data-toggle="collapse" data-target="#code3" class="btn btn-success">Code</button>
+                              <div id="code3" class="collapse">
+                                  Placeholder for code
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div id="fizzbuzz" class="tab-pane fade">
+                  <div class="row">
+                      <div class="col-xs-12 text-center h2">
+                          Coding Challenge 4 : FizzBuzz
+                      </div>
+                  </div>
+                  <hr />
+                  <div class="row">
+                      <div class="col-xs-12 text-center h3">
+                          Enter two whole numbers between 0 and 100.
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-xs-6">
+                          <div class="row">
+                                <input type="number" class="input-lg" id="fizz" placeholder="Enter a number.">
+                          </div>                 
+                          <div class="row">
+                                <input type="number" class="input-lg" id="buzz" placeholder="Enter a number.">
+                          </div>
+                      </div>
+                      <div class="col-xs-6">
+                          <p id="fizzbuzzoutput"></p>
+                      </div>
+                  </div>
+
+                  <div class=row>
+                      <div class="col-xs-12 text-center">
+                          <div class="btn-group-lg">
+                              <button id="fizzBtn" class="btn btn-primary">FizzBuzz</button>
+                              <button id="clearBtn4" class="btn btn-danger">Clear</button>
+                              <button id="codeBtn4" data-toggle="collapse" data-target="#code4" class="btn btn-success">Code</button>
+                              <div id="code4" class="collapse">
+                                  Placeholder for code
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
