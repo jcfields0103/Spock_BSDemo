@@ -1,2 +1,10 @@
-﻿body {
+﻿.palin {
+    color: forestgreen;
+    font-weight: bolder;
 }
+
+.nolip {
+    color: red;
+    font-weight: bolder;
+}
+
