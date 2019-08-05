@@ -28,9 +28,9 @@
                 output += ("<span class='buzz'>Buzz, </span>")
             }
             else {
-                output += counter + (", ")
+                output += counter + ("<span class='whir'>, </span>")
             }
-        output = output.slice(0, output.length - 2)
+        output = output.substr(0, output.length -9 )
         //Display the results to the user
         $("#fizzbuzz").html(output);
     })

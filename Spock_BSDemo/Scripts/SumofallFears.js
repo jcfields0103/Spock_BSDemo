@@ -25,18 +25,20 @@
       //Search the array 
         var field = [num1, num2, num3, num4, num5, num6]
         var answer = 0
-        for (var check1 = 0; check1 <= field.length - 1; check1++) {
-            for (var check2 = 1; check2 <= field.length - 1; check2++) {
-              
+        search: {
+            for (var check1 = 0; check1 <= field.length; check1++) {
+                for (var check2 = 0; check2 <= field.length; check2++) {
 
-                answer = (field[check1]) + (field[check2])
-                if (answer == numK && check1 !== check2) {
-                    checkK = true
-                    output = (   numK  + " was found by adding array members " + field[check1] + " and " + field[check2] + ".")
-                    break;                    
-                }                
-            }            
-           }       
+
+                    answer = (field[check1]) + (field[check2])
+                    if (answer == numK && check1 !== check2) {
+                        checkK = true
+                        output = (numK + " was found by adding array members " + field[check1] + " and " + field[check2] + ".")
+                        break search;
+                    }
+                }
+            }
+        }
            //Display the result to the user
         $("#K").text(output);
     })

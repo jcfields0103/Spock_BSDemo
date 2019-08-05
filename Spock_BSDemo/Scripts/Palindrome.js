@@ -11,18 +11,18 @@
         }
     })
     $("#palinBtn").click(function () {
-        //Get user input
+        //Get user input, remove spaces and make it lowercase
         var word = $("#word").val();
-        
+        var wordplus = word.replace(/\s+/g, "").toLowerCase();
         //Flip the word and check for symmetry
-        for (var index = word.length - 1, newword = ''; index >= 0; index--) {
-            newword += word.substr(index, 1);
+        for (var index = wordplus.length - 1, newword = ''; index >= 0; index--) {
+            newword += wordplus.substr(index, 1);
         }
-        if (word == newword) {
-            var palindrome = '<span class="palin">' + newword + '</span>'
+        if (wordplus == newword) {
+            var palindrome = '<span class="palin">' + newword + " is a palindrome" + '</span>'
         }
         else {
-            var palindrome = '<span class="nolip">' + newword + '</span>'
+            var palindrome = '<span class="nolip">' + newword + " is not a palindrome" + '</span>'
         }
         //Show user the Results
         $("#reverse").html(palindrome);
