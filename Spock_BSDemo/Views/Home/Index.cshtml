@@ -96,7 +96,7 @@
                         <div class="wow bounceInDown" data-wow-delay="0.2s">
                             <h2>My name is Caleb Fields</h2>
                         </div>
-                        <p class="wow bounceInUp" data-wow-delay="0.3s">I'm 28 years old, from a small town in North Carolina, and I'm a nerd. </p>
+                        <p class="wow bounceInUp" data-wow-delay="0.3s">I'm 28 years old from a small town in North Carolina. I'm a nerd and I'm a coder. </p>
                     </div>
                 </div>
             </div>
@@ -111,13 +111,13 @@
                 <div class="col-md-6">
                     <p><strong>A long time ago in a shire far,far away...</strong></p>
                     <p>
-                        From Sci-Fi to Fantasy, Star Wars to Lord of the Rings, competetive gaming to Dungeons and Dragons. If it's nerdy or geeky, chances are I've tried it and love it. But the thing I love most is being a Coder. 
+                        From Sci-Fi to Fantasy, Star Wars to Lord of the Rings, competetive gaming to Dungeons and Dragons. If it's nerdy or geeky, chances are I've tried it and love it. But the thing I love most is being a coder. 
                         I've always been drawn to technology as it applies to those hobbies of mine. I've always had an aptitude for taking things apart, seeing how they work, and most of the time putting them back together. On a basic
                         level that's what coding is, constant trial and error, putting it together and taking it apart, until you learn what makes the program tick. 
                     </p>
                     <p>
                         After some wandering around and trying my hand at different career fields, I finally found an opportunity to do something with that technological passion and aptitude. I've found success in what I've learned
-                        with coding so far. My hope is to never stop learning and to help others find and enjoy what they love easier through technology.
+                        with coding so far. My hope is to never stop learning and to help others find and enjoy what they love easier through technology that I design and create.
                     </p>
                     <blockquote>
                         "Not all those who wander are lost."
@@ -189,7 +189,7 @@
 
             <div class="wow bounceInUp" data-wow-delay="0.4s">
                 <div class="col-md-4">
-                    <a href="https://calebsblog.azurewebsites.net/">
+                    <a href="https://calebsblog.azurewebsites.net" target="_blank">
                     <img src="~/img/6.jpg" class="img-responsive btn" alt="img">
                     </a>
                     <div class="caption">
@@ -543,18 +543,19 @@ $("#clearBtn2").click(function () {
                                     <div class="col-xs-12 text-justify">
                                         <div id="code3">
                                             <pre class="brush: js">
-  $("#palinBtn").click(function () {
-        //Get user input
+   $("#palinBtn").click(function () {
+        //Get user input, remove spaces and make it lowercase
         var word = $("#word").val();
+        var wordplus = word.replace(/\s+/g, "").toLowerCase();
         //Flip the word and check for symmetry
-        for (var index = word.length - 1, newword = ''; index >= 0; index--) {
-            newword += word.substr(index, 1);
+        for (var index = wordplus.length - 1, newword = ''; index >= 0; index--) {
+            newword += wordplus.substr(index, 1);
         }
-        if (word == newword) {
-            var palindrome = '<span class="palin">' + newword + '</span>'
+        if (wordplus == newword) {
+            var palindrome = '<span class="palin">' + newword + " is a palindrome" + '</span>'
         }
         else {
-            var palindrome = '<span class="nolip">' + newword + '</span>'
+            var palindrome = '<span class="nolip">' + newword + " is not a palindrome" + '</span>'
         }
         //Show user the Results
         $("#reverse").html(palindrome);
@@ -630,7 +631,7 @@ $("#clearBtn2").click(function () {
                                     <div class="col-xs-12 text-justify">
                                         <div id="code4">
                                             <pre class="brush: js">
- //Get input from user
+    //Get input from user
     $("#fizzBtn").click(function () {
         var fizz = +$("#fizz").val();
         var buzz = +$("#buzz").val();
@@ -647,9 +648,9 @@ $("#clearBtn2").click(function () {
                 output += ("<span class='buzz'>Buzz, </span>")
             }
             else {
-                output += counter + (", ")
+                output += counter + ("<span class='whir'>, </span>")
             }
-        output = output.slice(0, output.length - 2)
+        output = output.substr(0, output.length -9 )
         //Display the results to the user
         $("#fizzbuzz").html(output);
     })
@@ -658,6 +659,7 @@ $("#clearBtn2").click(function () {
         $("#fizz, #buzz").val("");
         $("#fizzbuzz").text("");
     })
+})
 </pre>
                                         </div>
                                     </div>
@@ -742,9 +744,8 @@ $("#clearBtn2").click(function () {
                                     <div class="col-xs12 text-justify">
                                         <div id="code">
                                             <pre class="brush: js">
-$(function () { 
-        //Get the users input
-       $("#fearBtn").click(function () {
+//Get user info from the user
+    $("#fearBtn").click(function () {
         var num1 = +$("#num1").val();
         var num2 = +$("#num2").val();
         var num3 = +$("#num3").val();
@@ -752,32 +753,36 @@ $(function () {
         var num5 = +$("#num5").val();
         var num6 = +$("#num6").val();
         var numK = +$("#numK").val();
-        var checkK = false;
+        var checkK = false;  
+        
         var output = (numK + " was not found.")
-        //Search the array
+      //Search the array 
         var field = [num1, num2, num3, num4, num5, num6]
         var answer = 0
-        for (var check1 = 0; check1 <= field.length - 1; check1++) {
-            for (var check2 = 1; check2 <= field.length - 1; check2++) {
-                
+        search: {
+            for (var check1 = 0; check1 <= field.length; check1++) {
+                for (var check2 = 0; check2 <= field.length; check2++) {
 
-                answer = (field[check1]) + (field[check2])
-                if (answer == numK && check1 !== check2) {
-                    checkK = true
-                    output = (numK + " was found by adding array members " + field[check1] + " and " + field[check2] + ".")
-                    break;                    
-                }                
-            }            
-        }       
-        //Display the results to the user
+
+                    answer = (field[check1]) + (field[check2])
+                    if (answer == numK && check1 !== check2) {
+                        checkK = true
+                        output = (numK + " was found by adding array members " + field[check1] + " and " + field[check2] + ".")
+                        break search;
+                    }
+                }
+            }
+        }
+           //Display the result to the user
         $("#K").text(output);
     })
-        //Clear the input and output
+    //clear the input and output
     $("#clearBtn5").click(function () {
         $("#num1, #num2, #num3, #num4, #num5, #num6, #numK").val("");
         $("#K").text("");
     })
 });
+
                             </pre>
                                         </div>
                                     </div>
